@@ -3,19 +3,27 @@
 #include"prime/prime.h"
 
 int main(int argc, char** argv){
-        if(argc == 2){
-                cpp_int n;
+        if(argc == 3){
+                cpp_int n, m, ans;
                 std::istringstream iss( argv[1]);
                 if(iss >> n){
-                        if(fermatprime(n))
-					std::cout << n << " number is probably prime.\n";
+                        iss.clear();
+                        iss.str(argv[2]);
+                        if(iss >> m){
+                                ans = GCD(n,m);
+				std::cout<<"GCD of " << n <<" and "<< m <<" is "<<ans<<std::endl;
+                        }
 			else{
-				//printf("%lld number is not a prime.\n", n);
-				std::cout <<  n << " number is not a prime.\n";
+				std::cout <<"Arguments can only be numbers.\n"\
+                                 "Please check your arguments and refer to the documentation for further information.\n";
 			}
+                }
+                else{
+                        std::cout<<"Arrguments can only be numbers. \n" \
+                          "Please check your arguments and refer to the documentation for further information.\n";
                 }
         }
 	else{
-		printf("Incorrect Arguments\n");
+		printf("Incorrect number of arguments\n");
 	}
 }

@@ -2,13 +2,13 @@ LIBS=$(wildcard libs/*)
 INCLUDE_PATH=libs/
 
 build: libraries
-	c++ main.cpp $(wildcard libraries/*) -I$(INCLUDE_PATH) -o fermatprime
-	chmod +x fermatprime
+	c++ main.cpp $(wildcard libraries/*) -I$(INCLUDE_PATH) -o GCD
+	chmod +x GCD
 
 install: libraries
-	c++ main.cpp $(wildcard libraries/*) -I$(INCLUDE_PATH) -o fermatprime
-	chmod +x fermatprime
-	cp fermatprime /usr/local/bin
+	c++ main.cpp $(wildcard libraries/*) -I$(INCLUDE_PATH) -o GCD
+	chmod +x GCD
+	cp GCD /usr/local/bin
 
 libraries:
 	mkdir libraries/
@@ -21,4 +21,4 @@ libraries:
 	done
 
 clean:
-	rm -rf libraries/ fermatprime
+	rm -rf libraries/ GCD
